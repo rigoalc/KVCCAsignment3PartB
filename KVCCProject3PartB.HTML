@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="eng-us">
+<head>
+<title>Project 3 Part B</title>
+
+<!--
+Part B (50 Points) - This is a useful way to demonstrate the use of Modulus.  
+
+Please write a JavaScript solution that will get a dollar amount from the user and will break that amount into quarters, dimes, nickels and pennies. 
+
+Display the original amount and the number of quarters, dimes, nickels and pennies.
+
+So, if the user provides a value of $1.43, you will display that $1.43 is 5 quarters, 1 dime, 1 nickel and 3 pennies.
+-->
+
+<script>
+    function main(){
+        var userNumber = getvalue();
+        var msg = CalcCoins(userNumber);
+        
+    }
+
+    function getvalue(){
+        var userNumber = window.prompt("How much cash you want to change?");
+        return userNumber;
+    }
+
+    function CalcCoins(coins){
+        
+        var quarters = 0;
+        var dimes = 0;
+        var nikels = 0;
+        var pennies = 0;
+        
+        var quarter = .25;
+        var dime = .1;
+        var nikel = .05;
+        var penny = .01;
+
+        if (coins >= quarter){  
+            quarters = parseInt(coins / quarter);
+            console.log("quarters =", quarters);
+            coins = coins % quarter;
+            console.log("remaining =", coins);
+        }
+
+        if (coins >= dime){  
+            dimes = parseInt(coins / dime)
+            console.log("dimes =", dimes);
+            coins = coins % dime;
+            console.log("remaining =", coins);
+        }
+        
+        if (coins >= nikel){  
+            nikels = parseInt(coins / nikel);
+            console.log("nikels =", nikels);
+            coins = coins % nikel;
+            console.log("remaining =", coins);
+        }
+        
+        if (coins >= penny){  
+            pennies = parseInt(coins / penny);
+            console.log("penies =", pennies);
+            coins = coins % penny;
+            console.log("remaining =", coins);
+        }
+        
+
+        
+        
+        document.getElementById("outputPara").innerHTML = coins + " is " + quarters + " quarters, " + dimes + " dimes, " + nikels + " nickels " + " and " + pennies + " pennies.";
+    }
+
+</script>
+</head>
+<body onload="main();">
+    <p id="outputPara"></p>
+    </body>
+    </html>
+    
